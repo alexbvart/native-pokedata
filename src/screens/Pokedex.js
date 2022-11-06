@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { SafeAreaView } from 'react-native'
+import { SafeAreaView, StyleSheet } from 'react-native'
 import {getPokemonsApi, getPokemonsDetailsByUrlApi} from '../api/pokemon'
 import PokemonList from '../components/PokemonList'
 
@@ -39,8 +39,17 @@ export default function Pokedex() {
   }
 
   return (
-    <SafeAreaView>
-      <PokemonList pokemonsList={pokemons}/> 
+    <SafeAreaView style={styles.sav}>
+      <PokemonList pokemonsList={pokemons}
+        loadPokemons={loadPokemons}/> 
     </SafeAreaView>
   )
 }
+
+const styles = StyleSheet.create({
+  sav:{
+    flex: 1,
+    backgroundColor: '#131313'
+  }
+
+})

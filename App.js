@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import Navigation from './src/navigation/Navigation'
 export default function App() {
   return (
-    <NavigationContainer>
+    <NavigationContainer >
       <Navigation></Navigation>
     </NavigationContainer>
   );
@@ -13,9 +13,9 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    // flex: 1,
+    backgroundColor: '#131313',
+    // alignItems: 'center',
+    // justifyContent: 'center',
   },
 });
