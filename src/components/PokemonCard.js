@@ -26,7 +26,9 @@ export default function PokemonCard({pokemon}) {
         >
             <Fill color="rgba(0, 0, 0, 0.8)" />
         </BackdropBlur> */}
-        <Text style={styles.type}> {`${pokemon.type}`.toUpperCase()}</Text>
+        <Text style={styles.type} numberOfLines = {1}> 
+            {`${pokemon.type}`.toUpperCase()}
+        </Text>
         <Image source={pokemon.imagen} style={styles.image} />
         <LinearGradient
             // Button Linear Gradient
@@ -43,8 +45,8 @@ export default function PokemonCard({pokemon}) {
 
 const styles = StyleSheet.create({
     card:{
-
-        height: 140,
+        // flex: 1,
+        minHeight: 140,
         // backgroundColor: "rgba(255, 255, 255, 0.12)",
         shadowColor: "rgba(0, 0, 0, 0.15)",
         shadowOffset: {

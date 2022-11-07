@@ -6,6 +6,7 @@ import PokemonList from '../components/PokemonList'
 export default function Pokedex() {
 
   const [pokemons, setPokemons] = useState([])
+  const [pagination, setPagination] = useState(null)
 
   useEffect(() => {
     ( async () => {
@@ -16,9 +17,12 @@ export default function Pokedex() {
   
   const loadPokemons = async() => {
     try {
-      const response = await getPokemonsApi();
+      const response = await getPokemonsApi(pagination);
 
-      // Recorrer el response, para traer sus detalles de cada pokemon
+      // Agrego la url de la siguiente peticion 
+      setPagination(response.next)
+
+      // Recorro el response, para traer sus detalles de cada pokemon
       const pokemonList = [];
       for await (const pokemon of response.results) {
         const pokemonDetails = await getPokemonsDetailsByUrlApi(pokemon.url);
@@ -40,8 +44,11 @@ export default function Pokedex() {
 
   return (
     <SafeAreaView style={styles.sav}>
-      <PokemonList pokemonsList={pokemons}
-        loadPokemons={loadPokemons}/> 
+      <PokemonList 
+        pokemonsList={pokemons}
+        loadMorePokemons={loadPokemons}
+        isNext={pagination}
+        /> 
     </SafeAreaView>
   )
 }
