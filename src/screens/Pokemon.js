@@ -8,6 +8,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { LinearGradient } from 'expo-linear-gradient';
 import capitalize from '../utils/capitalize';
+import { ScrollView } from 'react-native-gesture-handler';
+import Types from '../navigation/Pokemon/Types';
 
 export default function Pokemon({route, navigation}) {
   const {params} = route;
@@ -42,6 +44,7 @@ export default function Pokemon({route, navigation}) {
   if (!pokemon) return null;
 
   return (
+    // <ScrollView>
     <SafeAreaView  style={styles.container}>
       <View style={styles.containerImage}>
         <VectorCabecera colorFill={params.pokemonColor} style={stylesSvg.svg}/> 
@@ -50,9 +53,10 @@ export default function Pokemon({route, navigation}) {
               style={styles.image} /> 
       </View>
       <Text style={styles.name}> {capitalize(pokemon.name)}</Text>
-            <Text style={styles.order}> N° {`${pokemon.order}`.padStart(3,0)}</Text>
-      
+      <Text style={styles.order}> N° {`${pokemon.order}`.padStart(3,0)}</Text>
+      <Types  types={pokemon.types}/>
     </SafeAreaView >
+    // </ScrollView>
   )
 }
 
