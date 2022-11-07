@@ -19,7 +19,9 @@ export default function PokemonCard({pokemon}) {
 
 
     const goToPokemon = () => {
-        navigation.navigate("Pokemon", { id: pokemon.id})
+        navigation.navigate("Pokemon", { id: pokemon.id ,
+                                         pokemonColor: pokemonColor,
+                                         pokemonName: pokemon.name})
         console.log(pokemon.id)
     }
 

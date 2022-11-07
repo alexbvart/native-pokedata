@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { SafeAreaView, StyleSheet } from 'react-native'
 import {getPokemonsApi, getPokemonsDetailsByUrlApi} from '../api/pokemon'
 import PokemonList from '../components/PokemonList'
+import { COLOR_BACKGROUND } from '../utils/constans'
 
 export default function Pokedex() {
 
@@ -56,7 +57,7 @@ export default function Pokedex() {
 const styles = StyleSheet.create({
   sav:{
     flex: 1,
-    backgroundColor: '#131313'
+    backgroundColor: COLOR_BACKGROUND,
   }
 
 })
