@@ -1,12 +1,17 @@
 import { View, Text, StyleSheet, Image, TouchableWithoutFeedback} from 'react-native'
 import React from 'react'
+import { LinearGradient } from 'expo-linear-gradient';
 import {BackdropBlur, Canvas, Fill} from '@shopify/react-native-skia'
 import getColorNyPokemonType from '../utils/getColorByPokemonType'
+import capitalize from '../utils/capitalize'
 
 export default function PokemonCard({pokemon}) {
-
+    
     const pokemonColor = getColorNyPokemonType(pokemon.type)
-    const bgColorCard  = {backgroundColor: `${pokemonColor}2a`, ...styles.card}
+    const bgColorCard  = { backgroundColor: `${pokemonColor}2a`,
+                            borderWidth: 1,
+                            borderColor: `${pokemonColor}`,
+                         ...styles.card}
 
     const goToPokemon = () => {
         console.log(pokemon.name)
@@ -21,11 +26,15 @@ export default function PokemonCard({pokemon}) {
         >
             <Fill color="rgba(0, 0, 0, 0.8)" />
         </BackdropBlur> */}
+        <Text style={styles.type}> {`${pokemon.type}`.toUpperCase()}</Text>
         <Image source={pokemon.imagen} style={styles.image} />
-        <View style={styles.description}>
-            <Text style={styles.name}> {pokemon.name}</Text>
+        <LinearGradient
+            // Button Linear Gradient
+            colors={['#0E0E0E0f', '#5656560f']} 
+            style={styles.description}>
+            <Text style={styles.name}> {capitalize(pokemon.name)}</Text>
             <Text style={styles.order}> #{`${pokemon.order}`.padStart(3,0)}</Text>
-        </View>
+        </LinearGradient>
     </View>
 
     </TouchableWithoutFeedback>
@@ -51,19 +60,23 @@ const styles = StyleSheet.create({
     description:{
         position: "absolute",
         width: "100%",
-        height: 61,
+        height: 60,
         left: 0,
         bottom: 0,
-        borderRadius: 36,
+        borderBottomRightRadius: 36,
+        borderBottomLeftRadius: 36,
         backgroundColor: "rgba(14, 14, 14, 0.18)",
         paddingHorizontal: 24,
-        paddingVertical: 12
+        paddingVertical: 12,
+        gap: 2,
+        
     },
     name:{
         fontStyle: "bold",
         fontSize: 18,
         lineHeight: 18,
         // textAlign: "center",
+        fontWeight: "500",
         color: "#FFFFFF",
     },
     order:{
@@ -71,13 +84,24 @@ const styles = StyleSheet.create({
         fontSize: 14,
         lineHeight: 18,
         color: "#FFFFFF",
+        marginTop: 2,
+    },
+    type:{
+        color: "rgba(255, 255, 255, 0.05)",
+        fontStyle: "bold",
+        fontWeight: "600",
+        fontSize: 60,
+        // lineHeight: 18,
+        width: "90%",
+        height: "100%",
+        padStart: 20,
     },
     image:{
         position: "absolute",
         bottom: 2,
         right: 2,
-        height:190,
-        width: 190,
+        height:196,
+        width: 196,
     }
 
 })
