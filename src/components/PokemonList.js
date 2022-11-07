@@ -1,11 +1,11 @@
-import { Text,FlatList, StyleSheet , ActivityIndicator} from 'react-native'
+import { Text,FlatList, StyleSheet , ActivityIndicator, Platform} from 'react-native'
 import React from 'react'
 import PokemonCard from './PokemonCard'
 
 export default function PokemonList({pokemonsList,loadMorePokemons,isNext}) {
 
   // isNext valida si hay recursus que pedir a la api
-  
+
   const loadMore=()=>{
     loadMorePokemons();
   }
@@ -39,11 +39,12 @@ const styles = StyleSheet.create({
         paddingVertical:24,
         paddingHorizontal: 24,
         backgroundColor: "#131313",
-        gap: 24
+        gap: 24,
+        marginTop: Platform.OS === "android" ? 30 : 10,
     },
     spinner:{
       marginTop: 20,
-      marginBottom: 60,
+      marginBottom: Platform.OS === "android" ? 90 : 60,
     }
 
 })

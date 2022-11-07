@@ -4,17 +4,23 @@ import { LinearGradient } from 'expo-linear-gradient';
 import {BackdropBlur, Canvas, Fill} from '@shopify/react-native-skia'
 import getColorNyPokemonType from '../utils/getColorByPokemonType'
 import capitalize from '../utils/capitalize'
+import { useNavigation } from '@react-navigation/native';
 
 export default function PokemonCard({pokemon}) {
-    
+
+    const navigation = useNavigation();
+
+    // Doy estilos al card con los colores segun el tipo de pokemon
     const pokemonColor = getColorNyPokemonType(pokemon.type)
     const bgColorCard  = { backgroundColor: `${pokemonColor}2a`,
                             borderWidth: 1,
                             borderColor: `${pokemonColor}`,
                          ...styles.card}
 
+
     const goToPokemon = () => {
-        console.log(pokemon.name)
+        navigation.navigate("Pokemon", { id: pokemon.id})
+        console.log(pokemon.id)
     }
 
   return (
