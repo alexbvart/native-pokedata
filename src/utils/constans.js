@@ -22,6 +22,8 @@ export const POKEMON_TYPE_COLORS = {
   };
 
   export const COLOR_BACKGROUND = "#131313";
+  export const COLOR_TEXT = "#FFFFFF";
+
 
   // Imagenes sacadas de https://commons.wikimedia.org/wiki/Category:Pok%C3%A9mon_types_icons
   export const POKEMON_TYPE_ICON = {

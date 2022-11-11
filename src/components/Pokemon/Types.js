@@ -6,9 +6,7 @@ import getColorNyPokemonType from '../../utils/getColorByPokemonType';
 import { color } from 'react-native-reanimated';
 
 export default function Types({types}) {
-    // getIconByPokemonType()
 
-    console.log(types);
   return (
     <View style={styles.content}>
       {map( types, (item, index)=>(
@@ -20,7 +18,7 @@ export default function Types({types}) {
                 ...styles.pill }}
             >
             <Image style={styles.image} source={getIconByPokemonType(item.type.name)} />
-            <Text style={styles.typesText}>{item.type.name}aa</Text>
+            <Text style={styles.typesText}>{item.type.name}</Text>
         </View>
       ))
       }
@@ -30,7 +28,7 @@ export default function Types({types}) {
 
 const styles = StyleSheet.create({
     content:{
-        marginTop: 50,
+        marginTop: 12,
         flexDirection: "row",
         alignItems:"center",
         justifyContent:"center",
