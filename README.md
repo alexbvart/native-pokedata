@@ -13,5 +13,6 @@ Application that consumes the service of https://pokeapi.co/ to display informat
 - Credential: https://platzi.com/p/alexanderbriones/curso/2557-course/diploma/detalle/
 
 Application preview:
+
 [![N|Solid](https://i.ibb.co/K0ZgkYx/pokeapp.png)](https://i.ibb.co/K0ZgkYx/pokeapp.png)
 
